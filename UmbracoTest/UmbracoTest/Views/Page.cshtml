@@ -1,0 +1,69 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+}
+
+@{
+    string title = Model.Value<string>("title");
+    bool boolean = Model.Value<bool>("boolean");
+
+    var image = Model.Value<IPublishedContent>("headerimage");
+    var imageUrl = image.Url;
+}
+
+@*Hur man skriver ut grids*@
+@*@Html.GetGridHtml(Model, "gridLayout")*@
+
+@*@if (!string.IsNullOrEmpty(title))
+    {
+        <h1>@Model.Value("title")</h1>
+    }*@
+
+<div>
+    <div class="header-image">
+        <img src="@imageUrl" style="width:100%" />
+        @*<h1 class="display-4">@Model.Value("headerTitle")</h1>*@
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="header-text container py-5 px-5">
+        <h3 class="header-title text-center my-5 mx-5">@Model.Value("title")</h3>
+        <p class="">@Model.Value("textbox")</p>
+    </div>
+</div>
+
+
+<div class="cta text-center">
+    <div>
+        <h3>@Model.Value("ctaTitle")</h3>
+        <p>@Model.Value("ctaText")</p>
+    </div>
+</div>
+
+
+@*<style>
+        .header-text {
+            color: dimgray;
+            text-align: justify;
+            width: 60%;
+            line-height: 1.5;
+        }
+
+        .header-title {
+            text-transform: uppercase;
+        }
+
+        .cta {
+            background-color: #c0a5a6;
+            color: white;
+            font-size: 1.6rem;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            text-transform: uppercase;
+            padding-left: 30%;
+            padding-right: 30%;
+        }
+    </style>*@

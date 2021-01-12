@@ -9,16 +9,23 @@
     bool boolean = Model.Value<bool>("boolean");
 
     var image = Model.Value<IPublishedContent>("headerimage");
-    var imageUrl = image.Url;
+    var imageUrl = "";
+    if (image != null)
+    {
+        imageUrl = image.Url;
+    }
+
 }
 
 @*Hur man skriver ut grids*@
 @*@Html.GetGridHtml(Model, "gridLayout")*@
 
+
 @*@if (!string.IsNullOrEmpty(title))
     {
         <h1>@Model.Value("title")</h1>
     }*@
+
 
 <div>
     <div class="header-image">
@@ -29,9 +36,24 @@
 
 
 <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-md-6">
+            <h1>Hej</h1>
+        </div>
+        <div class="col-xs-12 col-lg-12 col-md-6">
+            <h1>Hejdå</h1>
+        </div>
+    </div>
+
+
+
     <div class="header-text container py-5 px-5">
-        <h3 class="header-title text-center my-5 mx-5">@Model.Value("title")</h3>
-        <p class="">@Model.Value("textbox")</p>
+        <h3 class="header-title text-center my-5 mx-5">
+            <a href="#">
+                @Model.Value("title")
+            </a>
+        </h3>
+        <div class="text-and-img">@Model.Value("textbox")</div>
     </div>
 </div>
 
@@ -43,6 +65,27 @@
     </div>
 </div>
 
+<div>
+    @Html.GetGridHtml(Model, "imagesGrid")
+    @Html.GetGridHtml(Model, "imagesGrid", "Bootstrap3-fluid")
+    @Html.GetGridHtml(Model, "homePageGrid")
+</div>
+
+<style>
+    .text-and-img img:last-child {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .grid-item {
+        text-align: center;
+        background-image: url("~/Media/unhnuala/patricia-z-7-680x495.jpg");
+        height: 200px;
+        background-color: silver;
+    }
+
+</style>
 
 @*<style>
         .header-text {

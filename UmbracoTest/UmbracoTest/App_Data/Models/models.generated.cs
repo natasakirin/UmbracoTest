@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a8992d6d912d228")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c8e48853dbaba9d8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.6")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -107,6 +107,20 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		[ImplementPropertyType("headerTitle")]
 		public string HeaderTitle => this.Value<string>("headerTitle");
+
+		///<summary>
+		/// HomePageGrid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("homePageGrid")]
+		public global::Newtonsoft.Json.Linq.JToken HomePageGrid => this.Value<global::Newtonsoft.Json.Linq.JToken>("homePageGrid");
+
+		///<summary>
+		/// ImagesGrid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("imagesGrid")]
+		public global::Newtonsoft.Json.Linq.JToken ImagesGrid => this.Value<global::Newtonsoft.Json.Linq.JToken>("imagesGrid");
 
 		///<summary>
 		/// PricelistText
